@@ -1,11 +1,11 @@
 import './App.css';
-import Back from '../Back/Back';
+import Wrapper from '../Wrapper/Wrapper';
 
 function App() {
 
   return (
     <div className="flex justify-center items-center w-full h-screen font-mono bg-gray-950">
-      <Back />
+      <Wrapper />
     </div>
   );
 }

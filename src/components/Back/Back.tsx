@@ -1,6 +1,6 @@
 function Back() {
     return (
-        <div className="flex p-8 h-fit bg-gray-300 rounded-3xl xl:w-[1000px] md:w-[800px] justify-start space-x-12">
+        <div className="flex p-8 h-fit bg-gray-300 rounded-3xl xl:w-[1000px] w-[800px] justify-start space-x-12">
             <div>
                 <h1 className="text-2xl font-semibold">Experience:</h1>
                 <ul className="flex-col content-center space-y-3 h-full">
