@@ -12,7 +12,7 @@ function Wrapper() {
     const ref = useRef<any>();
 
     const [rotation, setRotation] = useState<Coordinates>({ x: 0, y: 0 });
-    const [origin, setOrigin] = useState<Coordinates>({ x: 0.5, y: 0.5 });
+    const [flipped, setFlipped] = useState<boolean>(false);
     const [hovering, setHovering] = useState<boolean>(false);
 
     const onHover = useCallback<MouseEventHandler<HTMLDivElement>>(
@@ -25,18 +25,29 @@ function Wrapper() {
 
                 const coeff = 40;
                 setRotation({ x: -x * coeff, y: y * coeff });
-                setOrigin({ x: x + 0.5, y: y + 0.5 });
             }
         },
-        [hovering, setRotation, ref.current, setOrigin]
+        [hovering, setRotation, ref.current]
     );
+
+    // TODO: smooth flip animation
+
+    const onFlip = useCallback(() => {
+        setFlipped(!flipped);
+    }, [flipped, setFlipped]);
 
     return (
         <>
             <motion.div
                 className="grid grid-cols-1 grid-rows-1 place-items-center w-fit h-fit card"
-                whileHover={{ rotateX: rotation.y, rotateY: rotation.x, originX: 0.5, originY: 0.5, transformPerspective: 4000}}
-                transition={{ type: 'spring', stiffness: 80, bounce: 0.4 }}
+                style={{transformPerspective: 4000}}
+                whileHover={{
+                    rotateX: rotation.y,
+                    rotateY: rotation.x,
+                    originX: 0.5,
+                    originY: 0.5,
+                }}
+                transition={{ type: 'spring', stiffness: 100, bounce: 0.7 }}
                 onMouseEnter={() => setHovering(true)}
                 onMouseLeave={() => {
                     setHovering(false);
@@ -45,13 +56,17 @@ function Wrapper() {
                 onMouseMove={onHover}
                 ref={ref}
             >
-                <div className="col-start-1 row-start-1 face back">
+                <div className="col-start-1 row-start-1 face front">
                     <Front />
                 </div>
-                <div className="col-start-1 row-start-1 face front">
+                <div className="col-start-1 row-start-1 face back">
                     <Back />
                 </div>
             </motion.div>
+
+            <button className="bg-white" onClick={onFlip}>
+                Flip
+            </button>
         </>
     );
 }
