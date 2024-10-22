@@ -8,7 +8,7 @@ function Front() {
                 <div className="w-32 h-32 bg-black rounded-full xl:w-48 xl:h-48">{/* TODO: add image */}</div>
                 <div>Marino Didio</div>
                 <div>
-                    {age}, {bday.toLocaleDateString('it-IT')}
+                    {age} years old, bday {bday.toLocaleDateString('it-IT')}
                 </div>
                 <div>
                     <a href="mailto://marino.didio.work@gmail.com">marino.didio.work@gmail.com</a>
@@ -16,17 +16,17 @@ function Front() {
 
 {/* Put Proper Separator */}
                 <div>////////////////////////////////////////////////</div>
-                <div> Software Developer</div>
+                <div>Software Developer</div>
 
-                <div> Fotovoltaic Systems Installer/Mantainer</div>
+                <div>Fotovoltaic Systems Installer/Mantainer</div>
 
-                <div> Lifelong Student</div>
+                <div>Lifelong Student</div>
 
-                <div> Bodybuilder</div>
+                <div>Bodybuilder</div>
 
-                <div> Sketch Artist</div>
+                <div>Sketch Artist</div>
 
-                <div> Weeaboo</div>
+                <div>Metalhead</div>
             </div>
         </div>
     );

@@ -6,7 +6,7 @@ function App() {
   
 
   return (
-    <div className="flex justify-center items-center w-full h-screen font-mono bg-gray-950">
+    <div className="flex flex-col justify-center items-center space-y-12 w-full h-screen font-mono bg-zinc-900">
       <Wrapper />
     </div>
   );
