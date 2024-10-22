@@ -1,6 +1,6 @@
 function Back() {
     return (
-        <div className="flex flex-col p-8 h-[700px] w-[650px] bg-gray-300 rounded-3xl justify-around items-center text-center space-y-12">
+        <div className="flex flex-col p-8 h-[700px] w-[650px] bg-gray-900 text-white rounded-3xl justify-around items-center text-center space-y-12">
             <div className="flex flex-col space-y-4 grow">
                 <h1 className="text-2xl font-semibold">Experience:</h1>
                 <div> Informatics Student @UniBa & UniHH </div>

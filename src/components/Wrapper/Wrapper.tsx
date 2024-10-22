@@ -8,6 +8,8 @@ type Coordinates = {
     y: number;
 };
 
+const transition: any = { type: 'spring', stiffness: 100, bounce: 0.7, delay: 0 };
+
 function Wrapper() {
     const ref = useRef<any>();
 
@@ -27,17 +29,15 @@ function Wrapper() {
                 setRotation({ x: -x * coeff, y: y * coeff });
             }
         },
-        [hovering, setRotation, ref.current]
+        [hovering, setRotation]
     );
-
-    // TODO: smooth flip animation
 
     const onFlip = useCallback(() => {
         setFlipped(!flipped);
     }, [flipped, setFlipped]);
 
     useEffect(() => {
-        animate(ref.current, { rotateY: flipped ? 180 : 0 }, { type: 'spring', stiffness: 100, bounce: 0.7 });
+        animate(ref.current, { rotateY: flipped ? 180 : 0 }, transition);
     }, [flipped, hovering]);
 
     return (
@@ -51,7 +51,7 @@ function Wrapper() {
                     originX: 0.5,
                     originY: 0.5
                 }}
-                transition={{ type: 'spring', stiffness: 100, bounce: 0.7 }}
+                transition={transition}
                 onMouseEnter={() => setHovering(true)}
                 onMouseLeave={() => {
                     setHovering(false);
@@ -69,9 +69,13 @@ function Wrapper() {
             </motion.div>
 
             <button
-                className="px-12 py-4 font-bold text-white uppercase bg-gradient-to-b from-transparent via-rose-800 to-rose-900 rounded-lg transition-all duration-500 bg-size-200 bg-pos-0 hover:bg-pos-100"
+                className="px-12 py-4 font-bold text-white uppercase bg-gray-900 rounded-lg transition-colors duration-300 hover:bg-rose-600"
                 onClick={onFlip}
             >
+                {/* <button
+                className="px-12 py-4 font-bold text-white uppercase bg-gradient-to-b from-gray-900 via-rose-700 to-indigo-700 rounded-lg transition-all duration-500 bg-size-200 bg-pos-0 hover:bg-pos-100 via-50%"
+                onClick={onFlip}
+            > */}
                 {/* <button className="px-12 py-4 bg-gradient-to-r from-amber-600 to-red-700 rounded-2xl" onClick={onFlip}> */}
                 Flip
             </button>

@@ -3,7 +3,7 @@ function Front() {
     const age = Math.floor((Date.now() - bday.getTime()) / (1000 * 60 * 60 * 24 * 365.4));
 
     return (
-        <div className="p-8 bg-gray-300 rounded-3xl h-[700px] w-[650px] xl:text-xl">
+        <div className="p-8 bg-gray-900 rounded-3xl h-[700px] w-[650px] xl:text-xl text-white">
             <div className="flex flex-col items-center space-y-4 text-center">
                 <div className="w-32 h-32 bg-black rounded-full xl:w-48 xl:h-48">{/* TODO: add image */}</div>
                 <div>Marino Didio</div>
