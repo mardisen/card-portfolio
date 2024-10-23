@@ -63,11 +63,11 @@ function Wrapper() {
                 >
                     <div className="grid grid-cols-1 grid-rows-1 place-items-center face front">
                         <Front className="col-start-1 row-start-1" />
-                        <div className="col-start-1 row-start-1 w-full h-full foil" style={{ opacity: 1 }} />
+                        <div className="col-start-1 row-start-1 w-full h-full foil" />
                     </div>
                     <div className="grid grid-cols-1 grid-rows-1 place-items-center face back">
                         <Back className="col-start-1 row-start-1" />
-                        <div className="col-start-1 row-start-1 w-full h-full foil" style={{ opacity: 1 }} />
+                        <div className="col-start-1 row-start-1 w-full h-full foil" />
                     </div>
                 </motion.div>
             </div>

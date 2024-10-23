@@ -35,7 +35,7 @@ code {
 }
 
 .foil {
-    @apply bg-gradient-to-br from-violet-500 to-rose-500 mix-blend-multiply;
+    @apply bg-gradient-to-br from-violet-500 to-rose-500 mix-blend-color-dodge opacity-60;
     @apply col-start-1 row-start-1 rounded-3xl;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;;
