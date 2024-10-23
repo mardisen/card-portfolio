@@ -43,7 +43,7 @@ function Wrapper() {
     return (
         <>
             <motion.div
-                className="grid grid-cols-1 grid-rows-1 place-items-center w-fit h-fit card"
+                className="card"
                 style={{ transformPerspective: 4000, originX: 0.5, originY: 0.5 }}
                 whileHover={{
                     rotateX: rotation.y,
@@ -60,10 +60,11 @@ function Wrapper() {
                 onMouseMove={onHover}
                 ref={ref}
             >
-                <div className="col-start-1 row-start-1 face front">
-                    <Front />
+                {/* <div className="face foil" style={{ opacity: 1 }} /> */}
+                <div className="face front">
+                    <Front className="" />
                 </div>
-                <div className="col-start-1 row-start-1 face back">
+                <div className="face back">
                     <Back />
                 </div>
             </motion.div>

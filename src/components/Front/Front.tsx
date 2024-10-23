@@ -1,9 +1,9 @@
-function Front() {
+function Front({ className }: { className: string }) {
     const bday = new Date(2000, 11, 29, 0, 0);
     const age = Math.floor((Date.now() - bday.getTime()) / (1000 * 60 * 60 * 24 * 365.4));
 
     return (
-        <div className="p-8 bg-gray-900 rounded-3xl h-[700px] w-[650px] xl:text-xl text-white">
+        <div className={`p-8 text-white ${className} xl:text-xl`}>
             <div className="flex flex-col items-center space-y-4 text-center">
                 <div className="w-32 h-32 bg-black rounded-full xl:w-48 xl:h-48">{/* TODO: add image */}</div>
                 <div>Marino Didio</div>
@@ -14,7 +14,7 @@ function Front() {
                     <a href="mailto://marino.didio.work@gmail.com">marino.didio.work@gmail.com</a>
                 </div>
 
-{/* Put Proper Separator */}
+                {/* Put Proper Separator */}
                 <div>////////////////////////////////////////////////</div>
                 <div>Software Developer</div>
 

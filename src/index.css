@@ -16,16 +16,25 @@ code {
     monospace;
 } */
 
-.face {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
 .card {
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    @apply grid grid-cols-1 grid-rows-1 place-items-center w-fit h-fit;
+}
+
+.face {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /* TODO: Consider with only gradient for a more pastel look */
+    @apply bg-gray-900 rounded-3xl h-[700px] w-[650px] relative;
+    @apply col-start-1 row-start-1;
 }
 
 .back {
-  transform:rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.foil {
+    @apply bg-gradient-to-br from-violet-500 to-rose-500;
+    mix-blend-mode: color-dodge;
 }
