@@ -42,32 +42,35 @@ function Wrapper() {
 
     return (
         <>
-            <motion.div
-                className="card"
-                style={{ transformPerspective: 4000, originX: 0.5, originY: 0.5 }}
-                whileHover={{
-                    rotateX: rotation.y,
-                    rotateY: rotation.x + (flipped ? 180 : 0),
-                    originX: 0.5,
-                    originY: 0.5
-                }}
-                transition={transition}
-                onMouseEnter={() => setHovering(true)}
-                onMouseLeave={() => {
-                    setHovering(false);
-                    setRotation({ x: 0, y: 0 });
-                }}
-                onMouseMove={onHover}
-                ref={ref}
-            >
-                {/* <div className="face foil" style={{ opacity: 1 }} /> */}
-                <div className="face front">
-                    <Front className="" />
-                </div>
-                <div className="face back">
-                    <Back />
-                </div>
-            </motion.div>
+            <div className="grid grid-cols-1 grid-rows-1 place-items-center">
+                <motion.div
+                    className="col-start-1 row-start-1 card"
+                    style={{ transformPerspective: 4000, originX: 0.5, originY: 0.5 }}
+                    whileHover={{
+                        rotateX: rotation.y,
+                        rotateY: rotation.x + (flipped ? 180 : 0),
+                        originX: 0.5,
+                        originY: 0.5
+                    }}
+                    transition={transition}
+                    onMouseEnter={() => setHovering(true)}
+                    onMouseLeave={() => {
+                        setHovering(false);
+                        setRotation({ x: 0, y: 0 });
+                    }}
+                    onMouseMove={onHover}
+                    ref={ref}
+                >
+                    <div className="grid grid-cols-1 grid-rows-1 place-items-center face front">
+                        <Front className="col-start-1 row-start-1" />
+                        <div className="col-start-1 row-start-1 w-full h-full foil" style={{ opacity: 1 }} />
+                    </div>
+                    <div className="grid grid-cols-1 grid-rows-1 place-items-center face back">
+                        <Back className="col-start-1 row-start-1" />
+                        <div className="col-start-1 row-start-1 w-full h-full foil" style={{ opacity: 1 }} />
+                    </div>
+                </motion.div>
+            </div>
 
             <button
                 className="px-12 py-4 font-bold text-white uppercase bg-gray-900 rounded-lg transition-colors duration-300 hover:bg-rose-600"

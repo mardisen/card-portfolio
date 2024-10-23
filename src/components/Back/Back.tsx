@@ -1,6 +1,8 @@
-function Back() {
+function Back({ className }: { className: string }) {
     return (
-        <div className="flex flex-col justify-around items-center p-8 space-y-12 text-center text-white rounded-3xl">
+        <div
+            className={`flex flex-col justify-around items-center p-8 space-y-12 text-center text-white rounded-3xl ${className}`}
+        >
             <div className="flex flex-col space-y-4 grow">
                 <h1 className="text-2xl font-semibold">Experience:</h1>
                 <div> Informatics Student @UniBa & UniHH </div>
