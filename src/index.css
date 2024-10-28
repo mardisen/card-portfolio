@@ -34,15 +34,46 @@ code {
     transform: rotateY(180deg);
 }
 
-.foil {
-    @apply bg-gradient-to-br from-violet-500 to-rose-500 mix-blend-color-dodge opacity-60;
+/* .foil {
+    @apply bg-gradient-to-br from-violet-600 to-rose-600 mix-blend-multiply opacity-100;
     @apply col-start-1 row-start-1 rounded-3xl;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;;
+} */
+
+.color-dodge {
+    background-position: 50% 50%;
+    background-size: 300% 300%;
+    --color1: #ec9bb6;
+    --color2: #ccac6f;
+    --color3: #69e4a5;
+    --color4: #8ec5d6;
+    --color5: #b98cce;
+    filter: brightness(0.5) contrast(1);
+    background-image: linear-gradient(
+        115deg,
+        transparent 20%,
+        var(--color1) 36%,
+        var(--color2) 43%,
+        var(--color3) 50%,
+        var(--color4) 57%,
+        var(--color5) 64%,
+        transparent 80%
+    );
+    @apply mix-blend-color-dodge opacity-50 transition-all duration-300;
+    @apply col-start-1 row-start-1 rounded-3xl;
+}
+
+.card:hover {
+    .color-dodge {
+        filter: brightness(1) contrast(1);
+        @apply opacity-100;
+    }
 }
 
 @supports (-moz-appearance: none) {
     .foil {
+        display: none;
+    }
+    .color-dodge {
         display: none;
     }
 }
